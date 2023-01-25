@@ -1,0 +1,25 @@
+1. what I've learned from workshop1: 
+
+	(1) I learned how to distribute different functions to different cpp files according to their utility. For example, place file-related functions in File.cpp, place user-interacted functions in UI.cpp. 
+
+	(2) I practiced how to use C++ fundamental codes. For example, I used "cin" and "cout" keywords in my codes. 
+
+	(3) I learned how to put my functions into namespace and run them successfully. 
+
+	(4) I learned how to use #ifndef, #define, and #endif to avoid duplicate use of header file. 
+
+For instance, I use codes as follows: 
+
+#ifndef SDDS_GPALIST_H 
+
+#define SDDS_GPALIST_H 
+
+ 		#endif // !SDDS_GPALIST_H 
+
+  
+
+2. what I've found are difficult for me: 
+
+	(1) How to distribute functions to make them in different organized modules  is challenging work for me, because I almost never tried it by myself. However, after I tried this workshop step by step, I found it is not that difficult. I can use knowledge in my brain and successfully do it by myself. Of course, I cannot do it perfectly, and it needs improvement. 
+
+	(2) How to pass the GPA struct array between functions disturbs me a lot. The reason is, it is related to many other points: how to use header files, how to use namespace successfully. At the beginning, I made some subtle mistakes: I did not put definition of struct into namespace, that is why I failed to get data from struct array. 

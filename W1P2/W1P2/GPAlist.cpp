@@ -1,11 +1,12 @@
 /***********************************************************************
-// Workshop 1 p2: tester program
+// Workshop 1 p2: GPAlist.cpp file
 //
-// File  main.cpp
+// File  GPAlist.cpp
 // Version 1.0
 // Date  winter 2023
-// Author Fardad Soleimanloo
-//
+// Author:		Xinyu Zhang
+// Student No#: 174538215
+// Email:		xzhang399@myseneca.ca
 //
 // Revision History
 // -----------------------------------------------------------
@@ -13,10 +14,7 @@
 /////////////////////////////////////////////////////////////////
 ***********************************************************************/
 /*
-? <3.6 [ENTER]  list all the GPA records less than 3.6
-? >3.9 [ENTER]  list all the GPA records more than 3.9
-? ~3.0 [ENTER]  list all values close to 3.0 with 0.05 precision (between 2.95 and 3.05)
-? !  End query
+holding gpaQuery function.
 */
 #include <iostream>
 #include "GPAlist.h"
@@ -32,8 +30,12 @@ namespace sdds {
 	bool gpaQuery(const char* filename)
 	{
 		// function: get data from file.
-		bool result = loadStudentData("students.csv", studentInfo);
+		bool result = loadStudentData(filename, studentInfo);
 		// function: sort gpa structs
+		if (result == false)
+		{
+			return result;
+		}
 		sortStudentData(studentInfo);
 		// input gpa and output
 		displayStudentInfo(studentInfo);

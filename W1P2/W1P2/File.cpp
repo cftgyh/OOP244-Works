@@ -1,11 +1,12 @@
 /***********************************************************************
-// Workshop 1 p2: tester program
+// Workshop 1 p2: File.cpp file
 //
-// File  main.cpp
+// File  File.cpp
 // Version 1.0
 // Date  winter 2023
-// Author Fardad Soleimanloo
-//
+// Author:		Xinyu Zhang
+// Student No#: 174538215
+// Email:		xzhang399@myseneca.ca
 //
 // Revision History
 // -----------------------------------------------------------
@@ -13,14 +14,13 @@
 /////////////////////////////////////////////////////////////////
 ***********************************************************************/
 /*
-File: hold file-related functions
+holding file related functions.
 */
 
 #define _CRT_SECURE_NO_WARNINGS
 #include <iostream>
 #include "File.h"
 #include "GPA.h"
-#include "GPAList.h"
 
 namespace sdds
 {
@@ -49,9 +49,9 @@ namespace sdds
 	void sortStudentData(struct GPA stdInfo[])
 	{
 		int i, j, n;
-		struct GPA sInfo = { {0} };			// Appointment app use to as an exchange medium
+		struct GPA sInfo = { {0} };			// GPA sInfo use to as an exchange medium
 
-		// count how many valid members are there in the appointments array.
+		// count how many valid members are there in the stdInfo array.
 		for (i = n = 0; i < 100 && stdInfo[i].stno != 0; i++)
 		{
 			n++;
@@ -63,7 +63,7 @@ namespace sdds
 			{
 				if (stdInfo[i].stno > stdInfo[j].stno)
 				{
-					// exchange appointments[i] and appointments[j]
+					// exchange stdInfo[i] and stdInfo[j]
 					sInfo = stdInfo[i];
 					stdInfo[i] = stdInfo[j];
 					stdInfo[j] = sInfo;
