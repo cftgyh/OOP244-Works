@@ -31,15 +31,17 @@ namespace sdds {
 	{
 		// function: get data from file.
 		bool result = loadStudentData(filename, studentInfo);
-		// function: sort gpa structs
+		
 		if (result == false)
 		{
 			return result;
 		}
+		// function: sort gpa structs
 		sortStudentData(studentInfo);
-		// input gpa and output
+
+		// user input and display output
 		displayStudentInfo(studentInfo);
 
-		return result;// return true or false;
+		return result;// return true;
 	}
 }

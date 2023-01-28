@@ -1,0 +1,15 @@
+Records were retrieved successfully
+Data records were grouped by the user id successfully
+User id, timeinhours, Fctime, Fwifitime, Package Name
+.....................................................
+0,1.49325,369926,5005762,com.tencent.mm
+0,1.35947,172756,4721320,com.tencent.mm
+0,1.66986,1221,6010276,com.UCMobile
+5,1.60287,5722288,48042,com.sina.weibo
+5,1.92426,260011,6667309,com.tencent.mm
+5,1.47877,2089902,3233672,com.UCMobile
+9,1.02618,288007,3406229,com.digiplex.game
+9,1.23554,59991,4387945,com.tencent.mm
+9,12.9425,2190642,44402341,com.tencent.mm
+9,1.21251,2544077,1820967,com.tencent.qqmusic
+.....................................................
