@@ -1,0 +1,14 @@
+1. What I have learned
+	(1) I learned how to write class(include function declaration and definition), how to set functions as public(because class is private by default), and how to use the class functions in main function.
+
+	(2) I also learned how to reasonably use 2 different classes and make them 
+work together to get what I need. For example, use m_toy.setToys in Store::setToys, 
+and use m_toy.display() in Store::display().
+
+	(3) I learned how to use cout.fill... to fill my output with some chars, use cout.width... to set output width up, use cout.setf set left/right assignment, and use fixed << setprecision... to set precision of float type.
+
+
+2. What difficulties I ever met in this workshop
+	(1) One big difficulty I met is: how to assemble those 2 classes and their vars and functions, how to relate them to each other, so that it would work quickly, correctly and output the right output.
+
+	(2) Another difficulty I met is: How to setEmpty for m_toy array. It's a toy array, and contains many details. So, I was a bit confused about how to set it to an empty state. Finally I choose to solve the problem by a for loop, and write m_toy[i] = {};.
