@@ -1,0 +1,11 @@
+1. What I have learned in the workshop:
+
+	(1) From 4 overloads of read function, I learned how to write overload function. By practice during the workshop, I understand what overload functions are: they have the same function identifier but different parameters and how to correctly use them.
+
+	(2) From addCustomer function, I learned how to how to use pointer to dynamically holds data. Because I don't know how many customers there are accurately, everytime when there is a new record, I have to ask for new memory to store all records and delete previous memory.
+
+
+2. What's the difficulty I met:
+
+	(1) I think it's really difficult for me to do the addCustomer function. How to write the code so that I can store what I entered immediately using the pointer without size? It bothers me a lot. And I finally make out a solution that I can ask for new size of memory when I add new record, and delete the previous memory. As a result, I can store all the records in some memory and display them successfully.
+
