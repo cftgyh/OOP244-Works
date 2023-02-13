@@ -1,0 +1,40 @@
+SoccerTeam module (struct public )
+
+const int MAX_FOUL = 4; //最大犯规数
+
+{   char m_teamName[41];  
+    int m_noFouls;// 犯规数 >= 0
+    double m_fines;// 罚金 >=0
+    int m_golas;// >=0
+    }
+ 	  void setTeam(const SoccerTeam& team);
+        void setName(const char* tname);
+        void setFine(double fines, int foul);
+        void setEmpty();
+        bool isEmpty() const;
+        void calFines();
+        int fouls() const;
+        soccerTeam();
+        SoccerTeam(const char* tname, double fines, int foul);
+        std::ostream& display()const;
+
+
+Tounament module (class private) 联盟
+{   char* m_name;
+    int m_num; // size of dynamic hold SoccerTeam, >=0 
+    SoccerTeam* m_soccer = nullptr
+	//pointer to the dynamically allocated array of soccerTeam}
+
+ void setTournament(const char* name, int noOfteam, const SoccerTeam* soccer);
+        void setEmpty();
+        bool isEmpty() const;
+        Tournament& match(const SoccerTeam* ls);
+        ostream& display() const;
+
+Tournament::Tournament(const char* name, int noOfteam, SoccerTeam* soccer) {
+		setTournament(name, noOfteam, soccer);
+	}
+
+ Tournament(const char* mname,int mnum, SoccerTeam* msoccer);
+
+
