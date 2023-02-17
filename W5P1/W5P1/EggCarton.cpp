@@ -17,24 +17,17 @@
 // Name            Date            Reason
 /////////////////////////////////////////////////////////////////
 ***********************************************************************/
-#define _CRT_SECURE_NO_WARNINGS
 #include <iostream>
 #include "EggCarton.h"
-
 using namespace std;
 
 namespace sdds {
-	void EggCarton::setBroken() {
+	EggCarton& EggCarton::setBroken() {
 		m_size = -1;
 		m_numOfEggs = -1;
+		return *this;
 	}
 	EggCarton::EggCarton(int size, int noOfEggs, bool jumboSize) {
-		set(size, noOfEggs, jumboSize);
-	}
-	EggCarton::~EggCarton() {
-		setBroken();
-	}
-	void EggCarton::set(int size, int noOfEggs, bool jumboSize){
 		if (size >= 6 && size <= 36 && size % 6 == 0 &&
 			noOfEggs >= 0 && noOfEggs <= size) {
 			m_size = size;
@@ -45,29 +38,18 @@ namespace sdds {
 			setBroken();
 		}
 	}
-	ostream& EggCarton::displayCarton(int size, int noOfEggs, bool jumbo, ostream& ostr)const {
-		if (bool(*this)) {
-			int cartonWidth = size == 6 ? 3 : 6;
-			for (int i = 0; i < size; i++) {
-				ostr << ((i % cartonWidth) ? '|' : '[') << ((i < noOfEggs) ? (jumbo ? 'O' : 'o') : ' ');
-				((i + 1) % cartonWidth == 0) && ostr << ']' << endl;
-			}
-		}
-		else {
-			ostr << "Broken Egg Carton!" << endl;
-		}
-		return ostr;
+	EggCarton::~EggCarton() {
+		setBroken();
 	}
-	istream& EggCarton::read(istream& istr = cin) {
+	istream& EggCarton::read(istream& istr) {
+		m_isJumbo = false;
 		char jumbo;
 		int size, numOfegg;
 
-		jumbo = istr.get();
+		//jumbo = istr.get();
+		istr >> jumbo;
 		if (jumbo == 'j') {
 			m_isJumbo = true;
-		}
-		else {
-			m_isJumbo = false;
 		}
 		istr.ignore();
 
@@ -77,9 +59,39 @@ namespace sdds {
 		istr >> numOfegg;
 		istr.ignore();
 
-		set(size, numOfegg, jumbo);
-		
+		if (size >= 6 && size <= 36 && size % 6 == 0 &&
+			numOfegg >= 0 && numOfegg <= size) {
+			m_size = size;
+			m_numOfEggs = numOfegg;
+		}
+		else {
+			setBroken();
+		}
+
 		return istr;
+	}
+	ostream& EggCarton::display(ostream& ostr) const
+	{
+		if (bool(*this))
+		{
+			displayCarton(m_size, m_numOfEggs, m_isJumbo, ostr);
+		}
+		else
+		{
+			ostr << "Broken Egg Carton!" << endl;
+		}
+		return ostr;
+	}
+
+	ostream& EggCarton::displayCarton(int size, int noOfEggs, bool jumbo, ostream& ostr) const
+	{
+		int cartonWidth = size == 6 ? 3 : 6;
+		for (int i = 0; i < size; i++)
+		{
+			ostr << ((i % cartonWidth) ? '|' : '[') << ((i < noOfEggs) ? (jumbo ? 'O' : 'o') : ' ');
+			((i + 1) % cartonWidth == 0) && ostr << ']' << endl;
+		}
+		return ostr;
 	}
 
 	// Type Conversion Operator overloads
@@ -101,7 +113,7 @@ namespace sdds {
 		int weight = m_isJumbo ? JumboEggWieght : RegularEggWieght;
 
 		if (bool(*this)) {
-			value = m_numOfEggs * weight;
+			value = m_numOfEggs * weight * 0.001;
 		}
 		else { value = -1.0; }
 
@@ -125,25 +137,17 @@ namespace sdds {
 		return *this;
 	}
 
-	// postfix
+	// postfix ?
 	EggCarton EggCarton::operator--(int) {
-		EggCarton old(m_size, m_numOfEggs, m_isJumbo);
+		EggCarton old(*this);
 
-		if (bool(this) && m_numOfEggs > 0) {
-			m_numOfEggs -= 1;
-		}
-
+		--(*this);
 		return old;
 	}
 	EggCarton EggCarton::operator++(int) {
-		EggCarton old(m_size, m_numOfEggs, m_isJumbo);
+		EggCarton old(*this);
 
-		if (bool(*this)) {
-			m_numOfEggs += 1;
-			if (m_numOfEggs > m_size) {
-				setBroken();
-			}
-		}
+		++(*this);
 		return old;
 	}
 
@@ -155,21 +159,17 @@ namespace sdds {
 		}
 		return *this;
 	}
-	EggCarton& EggCarton::operator=(EggCarton& right) {
-		set(right.m_size, right.m_numOfEggs, right.m_isJumbo);
-		return *this;
-	}
 	EggCarton& EggCarton::operator+=(int value) {
-		if (bool(this)) {
+		if (bool(*this)) {
 			m_numOfEggs += value;
-		}
-		if (m_numOfEggs > m_size) {
-			setBroken();
+			if (m_numOfEggs > m_size) {
+				setBroken();
+			}
 		}
 		return *this;
 	}
 	EggCarton& EggCarton::operator+=(EggCarton& right) {
-		if (bool(this)) {
+		if (bool(*this)) {
 			int differ = m_size - m_numOfEggs;
 			if (differ >= right.m_numOfEggs) {
 				m_numOfEggs += right.m_numOfEggs;
@@ -187,19 +187,12 @@ namespace sdds {
 			((double(*this) - double(right)) <= 0.001));
 	}
 
-	// Query function
-	int EggCarton::getSize() const{
-		return m_size;
-	}
-	bool EggCarton::getJumbol() const{
-		return m_isJumbo;
-	}
 
 	// Helper Binary Operator Overload
 	int operator+(int left, const EggCarton& right)
 	{
 		int value = left;
-		if (right) {
+		if (bool(right)) {
 			value = left + int(right);
 		}
 		return value;
@@ -207,7 +200,7 @@ namespace sdds {
 	ostream& operator<<(ostream& ostr, const EggCarton& right)
 	{
 		// TODO: insert return statement here
-		return right.displayCarton(right.getSize(), int(right), right.getJumbol(), ostr);
+		return right.display(ostr);
 	}
 
 	istream& operator>>(istream& istr, EggCarton& right)

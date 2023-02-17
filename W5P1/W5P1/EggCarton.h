@@ -20,22 +20,25 @@
 
 #ifndef SDDS_EGGCARTON_H
 #define SDDS_EGGCARTON_H
+#include <iostream>
+using namespace std;
 
 namespace sdds {
+	const int RegularEggWieght = 50;
+	const int JumboEggWieght = 75;
 	class EggCarton {
-		const int RegularEggWieght = 50;
-		const int JumboEggWieght = 75;
 		int m_size;	// num of eggs can hold
 		int m_numOfEggs; // num of eggs in the carton
 		bool m_isJumbo; // if jumbo, value = true
-		void setBroken();
+		EggCarton& setBroken();
+		ostream& displayCarton(int size, int noOfEggs, bool jumbo, ostream& ostr)const;
 		
 	public:
+		ostream& display(ostream& ostr = cout) const;
 		EggCarton(int size = 6, int noOfEggs = 0, bool jumboSize = false);
-		void set(int size = 6, int noOfEggs = 0, bool jumboSize = false);
+		~EggCarton();
 		istream& read(istream& istr = cin);
-		ostream& displayCarton(int size, int noOfEggs, bool jumbo, ostream& ostr)const;
-
+	
 		// Type Conversion Operator overloads
 		operator bool() const;
 		operator int() const;
@@ -49,14 +52,9 @@ namespace sdds {
 
 		// Binary Member Operators
 		EggCarton& operator=(int value);
-		EggCarton& operator=(EggCarton& right);
 		EggCarton& operator+=(int value);
 		EggCarton& operator+=(EggCarton& right);
 		bool operator==(const EggCarton& right) const;
-
-		// Query function
-		int getSize() const;
-		bool getJumbol() const;
 	};
 
 	// Helper Binary Operator Overload
