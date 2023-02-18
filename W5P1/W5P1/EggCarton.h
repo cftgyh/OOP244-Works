@@ -30,7 +30,7 @@ namespace sdds {
 		int m_size;	// num of eggs can hold
 		int m_numOfEggs; // num of eggs in the carton
 		bool m_isJumbo; // if jumbo, value = true
-		EggCarton& setBroken();
+		void setBroken();
 		ostream& displayCarton(int size, int noOfEggs, bool jumbo, ostream& ostr)const;
 		
 	public:

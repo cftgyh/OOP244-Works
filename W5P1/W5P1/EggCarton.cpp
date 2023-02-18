@@ -19,13 +19,13 @@
 ***********************************************************************/
 #include <iostream>
 #include "EggCarton.h"
-using namespace std;
+using namespace std; // **********************************
 
 namespace sdds {
-	EggCarton& EggCarton::setBroken() {
+	
+	void EggCarton::setBroken() {
 		m_size = -1;
 		m_numOfEggs = -1;
-		return *this;
 	}
 	EggCarton::EggCarton(int size, int noOfEggs, bool jumboSize) {
 		if (size >= 6 && size <= 36 && size % 6 == 0 &&
@@ -46,7 +46,7 @@ namespace sdds {
 		char jumbo;
 		int size, numOfegg;
 
-		//jumbo = istr.get();
+		//jumbo = istr.get(); this statement also works
 		istr >> jumbo;
 		if (jumbo == 'j') {
 			m_isJumbo = true;
@@ -70,6 +70,7 @@ namespace sdds {
 
 		return istr;
 	}
+	//***********************************************
 	ostream& EggCarton::display(ostream& ostr) const
 	{
 		if (bool(*this))
@@ -137,17 +138,23 @@ namespace sdds {
 		return *this;
 	}
 
-	// postfix ?
 	EggCarton EggCarton::operator--(int) {
-		EggCarton old(*this);
+		EggCarton old(m_size, m_numOfEggs, m_isJumbo);
 
-		--(*this);
+		if (bool(this) && m_numOfEggs > 0) {
+			m_numOfEggs -= 1;
+		}
+
 		return old;
 	}
+	
 	EggCarton EggCarton::operator++(int) {
-		EggCarton old(*this);
+		EggCarton old(m_size, m_numOfEggs, m_isJumbo);
 
-		++(*this);
+		if (bool(this) && m_numOfEggs > 0) {
+			m_numOfEggs += 1;
+		}
+
 		return old;
 	}
 
