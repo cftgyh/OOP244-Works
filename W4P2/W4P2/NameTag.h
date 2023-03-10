@@ -30,12 +30,12 @@ namespace sdds {
 	
 	public:
 		NameTag(const char* name);
-		NameTag(const char* name, int c);
+		NameTag(const char* name, unsigned int c);
 		NameTag();
 		~NameTag();
 		void deallocate();
 		void setEmpty();
-		void set(const char* name, int eNumber);
+		void set(const char* name, unsigned int eNumber);
 		void print();
 		NameTag& read();
 	};

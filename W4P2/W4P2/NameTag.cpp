@@ -26,9 +26,9 @@ using namespace std;
 namespace sdds {
 	NameTag::NameTag(const char* name) {
 		m_name = nullptr;
-		set(name, NULL);
+		set(name, 0);
 	}
-	NameTag::NameTag(const char* name, int eNumber) {
+	NameTag::NameTag(const char* name, unsigned int eNumber) {
 		m_name = nullptr;
 		set(name, eNumber);
 	}
@@ -39,19 +39,18 @@ namespace sdds {
 		deallocate();
 	}
 	void NameTag::deallocate() {
-		if (m_name != nullptr) {
-			delete[] m_name;
-			m_name = nullptr;
-		}
+		delete[] m_name;
+		m_name = nullptr;
 	}
 	void NameTag::setEmpty() {
 		m_name = nullptr;
-		m_extensionNum = NULL;
+		m_extensionNum = 0;
 	}
-	void NameTag::set(const char* name, int eNumber) { // const use with pointer (pointer can change the value)
+	void NameTag::set(const char* name, unsigned int eNumber) { // const use with pointer (pointer can change the value)
 		deallocate(); //put new memory, so ready for store new memory
 
-		if (name != nullptr) {
+		if ((name != nullptr && 
+			(eNumber == 0 || (eNumber >= 10000 && eNumber <= 99999)))) {
 			int length = strlen(name);
 			m_name = new char[length + 1];
 			strcpy(m_name, name);
@@ -65,7 +64,7 @@ namespace sdds {
 
 		int width = 0;
 		if (m_name == nullptr || 
-			(m_extensionNum!=NULL && 
+			(m_extensionNum!=0 && 
 			(m_extensionNum < 10000 || m_extensionNum > 99999))){
 			cout << "EMPTY NAMETAG!" << endl;
 		}
@@ -104,7 +103,7 @@ namespace sdds {
 			cout << "| ";
 			cout << "Extension: ";
 			cout.width(static_cast<std::streamsize>(width) - 11);
-			if (m_extensionNum == NULL) {
+			if (m_extensionNum == 0) {
 				cout << "N/A";
 			}
 			else {
@@ -126,7 +125,7 @@ namespace sdds {
 		}
 	}
 	NameTag& NameTag::read() {
-		setEmpty();
+		deallocate(); //m_name will be covered by read data, so must be deleted before read, otherwise memory leak
 
 		char name[41]{};
 		char yn;
@@ -139,7 +138,7 @@ namespace sdds {
 		cin.ignore(10000, '\n');
 
 		while (yn != 'y' && yn != 'Y' && yn != 'n' && yn != 'N') {
-			cout << "Only (Y) or (N) are acceptable, try agin: ";
+			cout << "Only (Y) or (N) are acceptable, try again: ";
 			cin.get(yn);
 			cin.ignore(10000, '\n');
 		}
@@ -163,7 +162,7 @@ namespace sdds {
 			set(name, extension);
 		}
 		else {
-			set(name, NULL);
+			set(name, 0);
 		}
 		return *this;
 	}

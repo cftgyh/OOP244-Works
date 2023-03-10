@@ -1,0 +1,33 @@
+/***********************************************************************
+// OOP244 Workshop w4 p2:  reflect.txt
+//
+// File reflect.txt
+// Version 1.0
+// Date  02/13/2023
+// Author Xinyu Zhang
+// Section OOP244-ZAA
+// Seneca ID   : 174538215
+// Seneca email: xzhang399@myseneca.ca
+***********************************************************************/
+
+1. What I learned from the workshop
+	(1) I learned how to use constructor to assign value to a class, and how to overload constructors so that I can assign value in different ways.
+
+	(2) I practised my ability to use functions about cout. For example, cout.setf(...), cout.width(use an int value or variable), cout.fill(...) and so on.
+
+	(3) I leared how to write function declaration to return the NameTag itself, so it can call another function of the NameTag
+						NameTag& NameTag::read(){
+						...
+							return *this;
+						}	
+
+2. What are the difficulties I met
+	(1) What condition can I use to judge if there is extensionNumber enter confused me a lot. I finally set m_extensionNum = 0, and use it as a condition, so that I can cout << "N/A" when (m_extension == 0).
+
+	(2) How can I read only 40 chars if the name length is out of 40 bothers me a lot. So I add a condition after strcpy: 
+						if (length > 40) {
+							m_name[40] = '\0';
+						}
+	and if length <= 40, I will do nothing here.
+
+	(3) If I write the constructor like: "NameTag::NameTag(char* name)", the program will remind me an error. The error is: can not match const char with NameTag::NameTag. I finally change it to "NameTag::NameTag(const char* name)", and it works. 
