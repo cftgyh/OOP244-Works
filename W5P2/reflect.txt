@@ -1,0 +1,22 @@
+*****************************************************************************
+                        reflection - Workshop5 DIY
+Full Name  : Xinyu Zhang
+Student ID#: 174538215
+Email      : xzhang399@myseneca.ca
+Section    : ZAA
+*****************************************************************************
+
+1. What I learned from the workshop
+
+	(1) I learned and practiced my ability to overload many operator functions, including Type conversion, Unary and Binary operator functions, and the format of calling them in another function. For example, I learned how to call bool function: bool(*this) will check if the bus is in service. If yes, bool(*this) will return true; Otherwise return false;
+
+ 	(2) I learned the meaning of keywords "const" and how to set parameter value by default.
+
+	(3) I learned what is helper function what is member function, and how to write them.
+
+	(4) I learned I should use "using namespace std;" in my header file if I use ostream & istream; otherwise, I should use it like: std::ostream & std::istream.
+
+
+2. What I think is difficult in the workshop
+
+	(1) Some subtle mistakes may occur in my codes when I was coding. For example, I set default values 2 times (in header file and in cpp file). The correct way is only set it in the header file.
