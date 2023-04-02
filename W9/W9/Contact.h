@@ -30,14 +30,15 @@ namespace sdds {
 		char m_postCode[7]{};	// 6 chars
 	public:
 		Contact();
-		~Contact();
-		bool valid()const;
 		// rule of three
-		Contact(const Contact& C);
-		Contact& operator=(const Contact& C);
+		Contact(const Contact& copyFrom);
+		Contact& operator=(const Contact& RightOperand);
+		~Contact();
+		operator bool()const;
+		void operator~();
+
 		std::istream& read(std::istream& istr);
-		std::ifstream& load(std::ifstream& ifst);
-		std::ostream& display(std::ostream& ostr)const;
+		std::ostream& write(std::ostream& ostr)const;
 	};
 }
 #endif // !SDDS_CONTACT_H

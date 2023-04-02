@@ -94,5 +94,6 @@ int main() {
         C = readContact(file);
         if (file) cout << C << endl;
     }
+
     return 0;
 }

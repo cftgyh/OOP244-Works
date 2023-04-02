@@ -1,16 +1,10 @@
 /***********************************************************************
-// OOP244 Workshop w9 p1:  Person header file
-//
-// File Person.h
+// OOP244 Workshop 9:
+// File	Person.h
 // Version 1.0
-// Date  03/28/2023
-// Author Xinyu Zhang
-// Section OOP244-ZAA
-// Seneca ID   : 174538215
-// Seneca email: xzhang399@myseneca.ca
-//
-// I have done all the coding by myself and only copied the code that
-// my professor provided to complete my workshops and assignments.
+// Date	Winter of 2023
+// Author	Fardad Soleimanloo
+// Description
 //
 // Revision History
 // -----------------------------------------------------------
@@ -19,33 +13,29 @@
 ***********************************************************************/
 #ifndef SDDS_PERSON_H
 #define SDDS_PERSON_H
+
 #include <iostream>
-#include <fstream>
-#include "Tools.h"
-
 namespace sdds {
-	class Person
-	{
-		char* m_firstName{};
-		char* m_lastName{};
-		char* m_midName{};
-	public:
-		Person();
-		virtual ~Person();
-		bool isValid()const;
-		// rule of three;
-		Person(const Person& P);
-		virtual Person& operator=(const Person& P);
-		virtual std::istream& read(std::istream& istr);
-		virtual std::ifstream& load(std::ifstream& ifst);
-		virtual std::ostream& display(std::ostream& ostr)const;
-	};
-	std::istream& operator>>(std::istream& istr, Person& P);
-	std::ifstream& operator>>(std::ifstream& ifst, Person& P);
-
-	std::ostream& operator<<(std::ostream& ostr, const Person& P);
+    class Person {
+        char* m_name{};
+        char* m_middleName{};
+        char* m_lastName{};
+    public:
+        Person();
+        Person(const Person& copyFrom);
+        Person& operator=(const Person& RightOperand);
+        virtual ~Person();
+        virtual std::istream& read(std::istream& istr);
+        virtual std::ostream& write(std::ostream& ostr)const;
+        // returns true if the name is valid; 
+        // a valid name has a first and a last name
+        // and they are not empty
+        virtual operator bool()const;
+        // deallocates the dynamic memory
+        virtual void operator~();
+    };
+    std::istream& operator>>(std::istream& leftOperand, Person& rightOperand);
+    std::ostream& operator<<(std::ostream& leftOperand, const Person& rightOperand);
 }
-#endif // !SDDS_PERSON_H
 
-
-
+#endif
