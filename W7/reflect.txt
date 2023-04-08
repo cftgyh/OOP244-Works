@@ -1,0 +1,32 @@
+*****************************************************************************
+                        reflection - Workshop7
+Full Name  : Xinyu Zhang
+Student ID#: 174538215
+Email      : xzhang399@myseneca.ca
+Section    : ZAA
+*****************************************************************************
+
+1. What I learned from the workshop
+	(1) I learned I can use the keyword: "protected" before parent functions, so they can be only 
+	available for the class itself and its' child class.
+
+	(2) I learned how to user parent class's public and protected functions in child class.
+
+ 	(3) I learned how to write the constructor function in child class: write initialization before {}.
+
+
+2. What I think is difficult in the workshop
+
+	(1) I didn't realize that the initialization of Pet should write before {}, so I wrote like: 
+	Fish::Fish(const char* name, int initAge){
+		Pet(name, initAge, cFishFee)
+	}
+so the output is weird.
+and then I realized I should write like below: 
+	Fish::Fish(const char* name, int initAge): Pet(name, initAge, cFishFee)	
+	}
+
+	(2) in function operator= of Pet.cpp, it says "In addition, when closing customers are to be charged 
+	based on the fee table". 
+	I did not understand the words, and I set m_totalAmount = p.m_noOfAmount. 
+	The correct answer should be: set the m_totalAmout = 0 here, and add fee when cloning fish and dog. 

@@ -1,0 +1,29 @@
+*****************************************************************************
+                        reflection - Workshop6
+Full Name  : Xinyu Zhang
+Student ID#: 174538215
+Email      : xzhang399@myseneca.ca
+Section    : ZAA
+*****************************************************************************
+
+1. What I learned from the workshop
+
+	(1) I learned how to open and close a file, how to read data from and file, and how to write data to a file.
+
+ 	(2) I learned how to write sort logic - sort a sequence of numbers from lower to higher.
+
+	(3) I practiced my ability to write copy constructor and copy assignment
+
+	(4) I learned how to use temp variable in function (istream& operator>>(istream& istr, Numbers& right)), 
+	so that I can use operator+= overloaded function. 
+
+2. What I think is difficult in the workshop
+
+	(1) Because I am unfamiliar with deallocate memory a little, the difficuty I met in this workshop is to find the memory leak. 
+		matrix notify me that the leak occurs in the load() function, so I checked this function again and again. 
+		I also checked other places where memory leaks are easy to occur in case of unpreditable errors. To know the program 
+		walkthrough more, I set a breakpoint and track the process carefully. 
+		
+		Finnaly, I found where the problem is: 
+		if (noOfLines != count), I should (delete[] m_collection) by myself before setEmpty(). I didn't aware of this point, 
+		so it caused a memory leak. I added (delete[] ,_collection), and then the error disappeared.

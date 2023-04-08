@@ -1,0 +1,30 @@
+*****************************************************************************
+                        reflection - Workshop8
+Full Name  : Xinyu Zhang
+Student ID#: 174538215
+Email      : xzhang399@myseneca.ca
+Section    : ZAA
+*****************************************************************************
+
+1. What I learned from the workshop
+
+	(1) I learned how to override functions of parent class in child class correctly: 
+	they must be of the same prototypes.
+
+	(2) I learned how to write a class use as interface for its child and grandchild 
+	classes. In header file, all of the functions' prototype in the class including 
+	destructor, should be virtual. And destructor should set default, other member 
+	functions should set =0.
+
+ 	(3) I learned the importance of "const" keyword: I wrote const in parent display 
+	function, but not in child display function. It caused error and I can not even 
+	compile the project. I finally found the defference and override them correctly.
+
+2. What I think is difficult in the workshop
+
+	(1) When overloading operation >> and << as helper functions, I use load() and play() as 
+	instruction. However, it doesn't work (because child classes override functions haven't 
+	created yet). I was very confused, and did many trials to get rid of error. I finally 
+	found the reason and know I should ignore the error (it will disappear automatically 
+	after I override virtual functions in child classes).
+	
