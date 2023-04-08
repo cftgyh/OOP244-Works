@@ -1,0 +1,186 @@
+Script started on Fri 31 Mar 2023 11:59:53 PM EDT
+==187984== Memcheck, a memory error detector
+==187984== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==187984== Using Valgrind-3.15.0 and LibVEX; rerun with -h for copyright info
+==187984== Command: ws.exe
+==187984== 
+Empty Contact: ><
+Copy and paste the following data entries...
+Enter the following (Correct Data Entry):
+Homer,Jay,Simpson
+70 the pond road,North York,ON,M3J3M6
+
+Name and address
+> Homer,Jay,Simpson
+70 the pond road,North York,ON,M3J3M6
+OK!
+Contact:
+Homer Jay Simpson
+70 the pond road
+North York ON
+M3J 3M6
+
+
+Enter the following (With Bad Province):
+Homer,Jay,Simpson
+70 the pond road,North York,ONT,M3J3M6
+
+Name and address
+> Homer,Jay,Simpson
+70 the pond road,North York,ONT,M3J3M6
+Empty Contact: ><
+
+Enter the following (With Bad Postal Code):
+Homer,Jay,Simpson
+70 the pond road,North York,ON,M3J 3M6
+
+Name and address
+> Homer,Jay,Simpson
+70 the pond road,North York,ON,M3J 3M6
+Empty Contact: ><
+
+Enter the following (With Bad City):
+Homer,Jay,Simpson
+70 the pond road,,ON,M3J3M6
+
+Name and address
+> Homer,Jay,Simpson
+70 the pond road,,ON,M3J3M6
+Empty Contact: ><
+
+Enter the following (With Bad Street Address):
+Homer,Jay,Simpson
+,North York,ON,M3J3M6
+
+Name and address
+> Homer,Jay,Simpson
+,North York,ON,M3J3M6
+Empty Contact: ><
+
+Name and addresses in file: 
+Homer Jay Simpson
+70 the pond road
+North York ON
+M3J 3M6
+
+Fred Soley
+1 York Gate Blvd
+North York ON
+M3N 3A1
+
+John Al Doe
+1750 Finch Ave E
+North York ON
+M2J 2X5
+
+==187984== 
+==187984== HEAP SUMMARY:
+==187984==     in use at exit: 72 bytes in 12 blocks
+==187984==   total heap usage: 166 allocs, 154 frees, 85,188 bytes allocated
+==187984== 
+==187984== 4 bytes in 1 blocks are definitely lost in loss record 1 of 12
+==187984==    at 0x4C2AC38: operator new[](unsigned long) (vg_replace_malloc.c:433)
+==187984==    by 0x4023E1: sdds::dynRead(std::istream&, char) (Tools.cpp:48)
+==187984==    by 0x401F66: sdds::Person::read(std::istream&) (Person.cpp:37)
+==187984==    by 0x401B13: sdds::Contact::read(std::istream&) (Contact.cpp:62)
+==187984==    by 0x402188: sdds::operator>>(std::istream&, sdds::Person&) (Person.cpp:64)
+==187984==    by 0x401168: main (main_prof.cpp:36)
+==187984== 
+==187984== 4 bytes in 1 blocks are definitely lost in loss record 2 of 12
+==187984==    at 0x4C2AC38: operator new[](unsigned long) (vg_replace_malloc.c:433)
+==187984==    by 0x4023E1: sdds::dynRead(std::istream&, char) (Tools.cpp:48)
+==187984==    by 0x401F66: sdds::Person::read(std::istream&) (Person.cpp:37)
+==187984==    by 0x401B13: sdds::Contact::read(std::istream&) (Contact.cpp:62)
+==187984==    by 0x402188: sdds::operator>>(std::istream&, sdds::Person&) (Person.cpp:64)
+==187984==    by 0x4012BB: main (main_prof.cpp:50)
+==187984== 
+==187984== 4 bytes in 1 blocks are definitely lost in loss record 3 of 12
+==187984==    at 0x4C2AC38: operator new[](unsigned long) (vg_replace_malloc.c:433)
+==187984==    by 0x4023E1: sdds::dynRead(std::istream&, char) (Tools.cpp:48)
+==187984==    by 0x401F66: sdds::Person::read(std::istream&) (Person.cpp:37)
+==187984==    by 0x401B13: sdds::Contact::read(std::istream&) (Contact.cpp:62)
+==187984==    by 0x402188: sdds::operator>>(std::istream&, sdds::Person&) (Person.cpp:64)
+==187984==    by 0x4013F2: main (main_prof.cpp:63)
+==187984== 
+==187984== 4 bytes in 1 blocks are definitely lost in loss record 4 of 12
+==187984==    at 0x4C2AC38: operator new[](unsigned long) (vg_replace_malloc.c:433)
+==187984==    by 0x4023E1: sdds::dynRead(std::istream&, char) (Tools.cpp:48)
+==187984==    by 0x401F66: sdds::Person::read(std::istream&) (Person.cpp:37)
+==187984==    by 0x401B13: sdds::Contact::read(std::istream&) (Contact.cpp:62)
+==187984==    by 0x402188: sdds::operator>>(std::istream&, sdds::Person&) (Person.cpp:64)
+==187984==    by 0x401505: main (main_prof.cpp:74)
+==187984== 
+==187984== 6 bytes in 1 blocks are definitely lost in loss record 5 of 12
+==187984==    at 0x4C2AC38: operator new[](unsigned long) (vg_replace_malloc.c:433)
+==187984==    by 0x4023E1: sdds::dynRead(std::istream&, char) (Tools.cpp:48)
+==187984==    by 0x401F4D: sdds::Person::read(std::istream&) (Person.cpp:36)
+==187984==    by 0x401B13: sdds::Contact::read(std::istream&) (Contact.cpp:62)
+==187984==    by 0x402188: sdds::operator>>(std::istream&, sdds::Person&) (Person.cpp:64)
+==187984==    by 0x401168: main (main_prof.cpp:36)
+==187984== 
+==187984== 6 bytes in 1 blocks are definitely lost in loss record 6 of 12
+==187984==    at 0x4C2AC38: operator new[](unsigned long) (vg_replace_malloc.c:433)
+==187984==    by 0x4023E1: sdds::dynRead(std::istream&, char) (Tools.cpp:48)
+==187984==    by 0x401F4D: sdds::Person::read(std::istream&) (Person.cpp:36)
+==187984==    by 0x401B13: sdds::Contact::read(std::istream&) (Contact.cpp:62)
+==187984==    by 0x402188: sdds::operator>>(std::istream&, sdds::Person&) (Person.cpp:64)
+==187984==    by 0x4012BB: main (main_prof.cpp:50)
+==187984== 
+==187984== 6 bytes in 1 blocks are definitely lost in loss record 7 of 12
+==187984==    at 0x4C2AC38: operator new[](unsigned long) (vg_replace_malloc.c:433)
+==187984==    by 0x4023E1: sdds::dynRead(std::istream&, char) (Tools.cpp:48)
+==187984==    by 0x401F4D: sdds::Person::read(std::istream&) (Person.cpp:36)
+==187984==    by 0x401B13: sdds::Contact::read(std::istream&) (Contact.cpp:62)
+==187984==    by 0x402188: sdds::operator>>(std::istream&, sdds::Person&) (Person.cpp:64)
+==187984==    by 0x4013F2: main (main_prof.cpp:63)
+==187984== 
+==187984== 6 bytes in 1 blocks are definitely lost in loss record 8 of 12
+==187984==    at 0x4C2AC38: operator new[](unsigned long) (vg_replace_malloc.c:433)
+==187984==    by 0x4023E1: sdds::dynRead(std::istream&, char) (Tools.cpp:48)
+==187984==    by 0x401F4D: sdds::Person::read(std::istream&) (Person.cpp:36)
+==187984==    by 0x401B13: sdds::Contact::read(std::istream&) (Contact.cpp:62)
+==187984==    by 0x402188: sdds::operator>>(std::istream&, sdds::Person&) (Person.cpp:64)
+==187984==    by 0x401505: main (main_prof.cpp:74)
+==187984== 
+==187984== 8 bytes in 1 blocks are definitely lost in loss record 9 of 12
+==187984==    at 0x4C2AC38: operator new[](unsigned long) (vg_replace_malloc.c:433)
+==187984==    by 0x4023E1: sdds::dynRead(std::istream&, char) (Tools.cpp:48)
+==187984==    by 0x401F7F: sdds::Person::read(std::istream&) (Person.cpp:38)
+==187984==    by 0x401B13: sdds::Contact::read(std::istream&) (Contact.cpp:62)
+==187984==    by 0x402188: sdds::operator>>(std::istream&, sdds::Person&) (Person.cpp:64)
+==187984==    by 0x401168: main (main_prof.cpp:36)
+==187984== 
+==187984== 8 bytes in 1 blocks are definitely lost in loss record 10 of 12
+==187984==    at 0x4C2AC38: operator new[](unsigned long) (vg_replace_malloc.c:433)
+==187984==    by 0x4023E1: sdds::dynRead(std::istream&, char) (Tools.cpp:48)
+==187984==    by 0x401F7F: sdds::Person::read(std::istream&) (Person.cpp:38)
+==187984==    by 0x401B13: sdds::Contact::read(std::istream&) (Contact.cpp:62)
+==187984==    by 0x402188: sdds::operator>>(std::istream&, sdds::Person&) (Person.cpp:64)
+==187984==    by 0x4012BB: main (main_prof.cpp:50)
+==187984== 
+==187984== 8 bytes in 1 blocks are definitely lost in loss record 11 of 12
+==187984==    at 0x4C2AC38: operator new[](unsigned long) (vg_replace_malloc.c:433)
+==187984==    by 0x4023E1: sdds::dynRead(std::istream&, char) (Tools.cpp:48)
+==187984==    by 0x401F7F: sdds::Person::read(std::istream&) (Person.cpp:38)
+==187984==    by 0x401B13: sdds::Contact::read(std::istream&) (Contact.cpp:62)
+==187984==    by 0x402188: sdds::operator>>(std::istream&, sdds::Person&) (Person.cpp:64)
+==187984==    by 0x4013F2: main (main_prof.cpp:63)
+==187984== 
+==187984== 8 bytes in 1 blocks are definitely lost in loss record 12 of 12
+==187984==    at 0x4C2AC38: operator new[](unsigned long) (vg_replace_malloc.c:433)
+==187984==    by 0x4023E1: sdds::dynRead(std::istream&, char) (Tools.cpp:48)
+==187984==    by 0x401F7F: sdds::Person::read(std::istream&) (Person.cpp:38)
+==187984==    by 0x401B13: sdds::Contact::read(std::istream&) (Contact.cpp:62)
+==187984==    by 0x402188: sdds::operator>>(std::istream&, sdds::Person&) (Person.cpp:64)
+==187984==    by 0x401505: main (main_prof.cpp:74)
+==187984== 
+==187984== LEAK SUMMARY:
+==187984==    definitely lost: 72 bytes in 12 blocks
+==187984==    indirectly lost: 0 bytes in 0 blocks
+==187984==      possibly lost: 0 bytes in 0 blocks
+==187984==    still reachable: 0 bytes in 0 blocks
+==187984==         suppressed: 0 bytes in 0 blocks
+==187984== 
+==187984== ERROR SUMMARY: 12 errors from 12 contexts (suppressed: 0 from 0)
+
+Script done on Sat 01 Apr 2023 12:00:18 AM EDT
