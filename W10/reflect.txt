@@ -1,0 +1,19 @@
+*****************************************************************************
+                        reflection - Workshop10
+Full Name  : Xinyu Zhang
+Student ID#: 174538215
+Email      : xzhang399@myseneca.ca
+Section    : ZAA
+*****************************************************************************
+
+1. What I learned from the workshop
+
+	(1) I learned how to write a template for different type and how to use the type symbol in the template function.
+
+	(2) I learned how to use a template function in main function. Actually, the use of template function is of no difference with normal function, just call a template funtion like a normal function, and we can pass values of different types in it.
+ 
+ 	(3) I learned I can declare  and define template funtions in a different header file, and when I need to use it, just include the header file name. 
+
+2. What I think is difficult in the workshop
+
+	(1) We must make sure all test objects like minValue and test elements(testValues array) aren't be copied or modified in the function. In order to acchieve the goal, I thought a lot. To make sure values cannot be modified, I should set both minValie and testValues array const. However, "values aren't be copied", it took me time to understand this word. Finally, I found I should use pass by address instead of passing by value to do it.
