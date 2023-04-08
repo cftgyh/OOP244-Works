@@ -1,0 +1,47 @@
+function GPA query:
+
+bool gpaQuery(const char* filename)
+{
+	// 
+char symbol, selection;
+double gpa;
+
+cout << "Enter GPA query..." << endl;
+
+
+do {
+	cout << "?";
+	cin >> symbol >> gpa >> endl;
+
+	if(symbol == '>')
+	{
+   		display all record > gpa
+	}	
+	else if(symbol =='<')
+	{
+		display all record < gpa
+	}
+	else if(symbol == '~')
+	{
+		display all record = gpa
+	}
+	else if(symbol == '!')
+	{
+		cout << "Exit the program? (Y)es/(N)o: " << selection << endl
+		if(selection == 'y')
+		{
+			cout << "Goodbye!" << endl
+		}
+	}
+	else
+	{
+		cout << "Syntax error: ? [Op][value]<ENTER>" << endl
+		     << "Op: [>,<,~,!]" << endl
+		     << "value: GPA value" << endl
+	}
+}while (symbol != '!' && selection != 'y')
+
+}
+
+
+
